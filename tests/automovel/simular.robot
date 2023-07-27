@@ -10,9 +10,15 @@ Test Teardown       Take Screenshot
 Submit Enrollment success
     [Tags]    critical
 
-    ${data}   Get fixture    language    language
+    ${data}   Get fixture    elements    elements
     Go to simulator page      ${data}[pt][option_1]
+
+    ${data1}   Get fixture     enrollment    simulator
+    Submit enrollment auto       ${data1}[simulator_success]
     
-    
-    
+    ${data}   Get fixture    elements    elements
+    Must be valid registration
+
+
+
 

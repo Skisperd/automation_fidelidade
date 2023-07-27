@@ -1,10 +1,10 @@
 {
-    "create": {
+    "simulator": {
         "simulator_success": {
             "enrollment": ["05-DE-82", "24-54-XI", "22-HT-53"]
         },
         "simulator_unsuccess": {
-            "enrollment": ["ZZ-AA-00"]
+            "enrollment": "ZZ-AA-00"
         }
     }   
 }

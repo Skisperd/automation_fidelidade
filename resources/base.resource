@@ -11,7 +11,7 @@ Resource       env.resource
 
 *** Keywords ***
 Start Session
-    ${data}   Get fixture    language    language
+    ${data}   Get fixture    elements         elements 
     New Browser         browser=${BROWSER}    headless=False
     New Page            ${BASE_URL}
     Accept Cookies      ${data}[pt][cokies]

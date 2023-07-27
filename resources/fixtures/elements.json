@@ -1,12 +1,13 @@
 {
-    "language": {
+    "elements": {
         "pt": {
             "cokies":"Aceitar Todos",
             "title": "Fidelidade | Nº 1 em Seguros Automóvel, Saúde, Casa e Viagem",
-            "text-center" : "EU QUERO",
+            "eu-quero" : "EU QUERO",
             "option_1": "Auto",
             "btn-fidelidade": "Quero Simular",
-            "welcome": "Bem-vindo ao simulador"
+            "welcome": "Bem-vindo ao simulador",
+            "button-next":"Seguinte"
         }
     }   
 }

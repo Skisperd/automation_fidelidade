@@ -10,8 +10,8 @@ Test Teardown   Take Screenshot
 Web App must be online
     [Tags]    critical  
 
-    ${data}   Get fixture    language    language
+    ${data}   Get fixture       elements        elements
 
     Accept Cookies              ${data}[pt][cokies]
     Get Title                   equal            ${data}[pt][title]
-    Information should be       ${data}[pt][text-center]
+    Information should be       ${data}[pt][eu-quero]
