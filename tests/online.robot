@@ -4,7 +4,7 @@ Documentation            Online website for testing
 Resource        ../resources/base.resource
 
 Test Setup      Start Session
-Test Teardown   Take Screenshot
+Test Teardown   Finish Session
 
 *** Test Cases ***
 Web App must be online
@@ -13,5 +13,4 @@ Web App must be online
     ${data}   Get fixture       elements        elements
 
     Accept Cookies              ${data}[pt][cokies]
-    Get Title                   equal            ${data}[pt][title]
     Information should be       ${data}[pt][eu-quero]

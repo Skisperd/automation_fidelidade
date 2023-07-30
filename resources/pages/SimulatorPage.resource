@@ -1,8 +1,7 @@
 *** Settings ***
 Documentation            Elements and simulation actions of the insurance company Fidelidade
 
-Library        Browser
-Resource       ../env.resource
+Library        SeleniumLibrary
 
 *** Keywords ***
 Go to simulator page
@@ -10,34 +9,35 @@ Go to simulator page
 
     ${element_auto}                 Set Variable         xpath=//a[@class="header" and contains(text(), "${language_item}")]
 
-    Wait For Elements State         ${element_auto}       visible    15
-    Click    ${element_auto}
-
+    Wait Until Element Is Visible         ${element_auto}  
+    Click Element    ${element_auto}
     ${element}                      Set Variable         xpath=//a[@id="ctl00_PlaceHolderMain_EditModePanel2_ProductDescription_lnkSimulateLink"] 
-    
-    Wait For Elements State         ${element}           visible    15
-    Click                           ${element}
+    Wait Until Element Is Visible           ${element}
+    Click Element                           ${element}
 
-Submit enrollment auto
-    [Arguments]     ${simulator_success}
+Submit license_plate
+    [Arguments]                        ${simulator_success}
 
-    ${auto_element}    Set Variable     xpath=//iframe[@id="Simulator"] >>> xpath=//*[@class="OSFillParent"]   
+    Select Frame                        xpath=//iframe[@id="Simulator"]
+    ${auto_element}                     Set Variable     xpath=//*[@class="OSFillParent"]
+    ${input_place_filder}               Set Variable     xpath=//input[@id='CFID_B2C_SIM_Th_SIMAUTO_wt60_block_wtMainContent_CFID_B2C_SIM_Pat_SIMAUTO_wtCustomCard_block_wtCustomCardContent_CFID_B2C_SIM_Pat_SIMAUTO_wt9_block_wtContent_Sim_Auto_Web_Pat_wtLicensePlateBlock_block_wtInputPlaceholder_wttxtRegNumber']
+    Wait Until Element Is Visible       ${auto_element} 
+    Input Text                          ${input_place_filder}    ${simulator_success}[enrollment]
+    Unselect Frame
 
-    Wait For Elements State      ${auto_element}        visible    5
-    
-    Focus         ${auto_element}
+Go to presimulation
 
-    FOR    ${auto}    IN    @{simulator_success}[enrollment]
-        Fill Text     ${auto_element}        ${auto}
-        Sleep         3
-        
-    END
+    Select Frame                        xpath=//iframe[@id="Simulator"]
+    ${element_button}                   Set Variable        xpath=//input[@id='CFID_B2C_SIM_Th_SIMAUTO_wt60_block_wtMainContent_CFID_B2C_SIM_Pat_SIMAUTO_wtCustomCard_block_wtCustomCardContent_CFID_B2C_SIM_Pat_SIMAUTO_wt9_block_wtFooter_wtbtnNext']
+    Wait Until Element Is Enabled       ${element_button}
+    Click Element                       ${element_button}
+    Unselect Frame
 
-Must be valid registration
-    [Arguments] 
+Go to simulation nsurance value
+    Go To    https://www.fidelidade.pt/PT/particulares/Auto/Simuladores/Automovel/Paginas/default.aspx
 
-    ${element}                 Set Variable          xpath=//iframe[@id="Simulator"] >>> xpath=//input[@value="Seguinte"]
-
-    Wait For Elements State         ${element}       visible    15
-    Click    ${element}
-
+Button disable
+    Select Frame                        xpath=//iframe[@id="Simulator"]
+    ${element_button}                   Set Variable        xpath=//input[@id='CFID_B2C_SIM_Th_SIMAUTO_wt60_block_wtMainContent_CFID_B2C_SIM_Pat_SIMAUTO_wtCustomCard_block_wtCustomCardContent_CFID_B2C_SIM_Pat_SIMAUTO_wt9_block_wtFooter_wtbtnNext']
+    Element Should Be Disabled          ${element_button}
+    Unselect Frame

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation        Information elements and actions of Seguradora Fidelidade
 
-Library        Browser
+Library        SeleniumLibrary
 
 *** Keywords ***
 Information should be
@@ -10,13 +10,13 @@ Information should be
     ${element}                   Set Variable        xpath=//h2[text()="${expected_text}"]
     
     # Checkpoint
-    Wait For Elements State      ${element}        visible        
-    Get Text                     ${element}        equal          ${expected_text}
+    Wait Until Element Is Visible      ${element}      
+    Element Text Should Be             ${element}                ${expected_text}
 
 Accept Cookies
     [Arguments]        ${language_item}
 
     ${element}         Set Variable               xpath=//button[text()="${language_item}"]
 
-    Wait For Elements State     ${element}        visible    15
-    Click    ${element}
+    Wait Until Element Is Visible     ${element}
+    Click Element                     ${element}
