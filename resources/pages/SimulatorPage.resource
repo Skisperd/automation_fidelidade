@@ -15,14 +15,14 @@ Go to simulator page
     Wait Until Element Is Visible           ${element}
     Click Element                           ${element}
 
-Submit license_plate
+Submit license plate
     [Arguments]                        ${simulator_success}
 
     Select Frame                        xpath=//iframe[@id="Simulator"]
     ${auto_element}                     Set Variable     xpath=//*[@class="OSFillParent"]
     ${input_place_filder}               Set Variable     xpath=//input[@id='CFID_B2C_SIM_Th_SIMAUTO_wt60_block_wtMainContent_CFID_B2C_SIM_Pat_SIMAUTO_wtCustomCard_block_wtCustomCardContent_CFID_B2C_SIM_Pat_SIMAUTO_wt9_block_wtContent_Sim_Auto_Web_Pat_wtLicensePlateBlock_block_wtInputPlaceholder_wttxtRegNumber']
     Wait Until Element Is Visible       ${auto_element} 
-    Input Text                          ${input_place_filder}    ${simulator_success}[enrollment]
+    Input Text                          ${input_place_filder}    ${simulator_success}
     Unselect Frame
 
 Go to presimulation
@@ -33,7 +33,7 @@ Go to presimulation
     Click Element                       ${element_button}
     Unselect Frame
 
-Go to simulation nsurance value
+Go to simulation insurance value
     Go To    https://www.fidelidade.pt/PT/particulares/Auto/Simuladores/Automovel/Paginas/default.aspx
 
 Button disable

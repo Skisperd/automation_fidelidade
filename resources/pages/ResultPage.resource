@@ -29,4 +29,5 @@ Should be price of the insurance company
 Write Test Result
     [Arguments]    ${result}
     Append To File    ${RESULT_FILE}    ${result}
+    Append To File    ${RESULT_FILE}    \n
     Log    ${result}
