@@ -4,9 +4,3 @@ O modelo do carro é:  FORD Fiesta Diesel
 O valor do seguro é: R$ 16,99€
 O modelo do carro é:  RENAULT Clio III Break Diesel
 O valor do seguro é: R$ 16,79€
-O modelo do carro é:  FORD Fiesta
-O valor do seguro é: R$ 15,83€
-O modelo do carro é:  FORD Fiesta Diesel
-O valor do seguro é: R$ 16,99€
-O modelo do carro é:  RENAULT Clio III Break Diesel
-O valor do seguro é: R$ 16,79€

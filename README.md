@@ -34,3 +34,6 @@ Smoke test:
 ```shell
 robot -d ./logs -i critical
 ```
+
+## Results:
+To save the insurance value, the output.txt file was created
